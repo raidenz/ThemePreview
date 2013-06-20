@@ -44,7 +44,7 @@ $theme_array = array (
 
 array ("id" => "adventure",
        "url" => "http://labs.burntfeathers.com/adventure",
-	   "themeforest" => "http://themeforest.net/item/adventure-a-unique-photography-wordpress-theme/155571"
+	   "themeforest" => "http://themeforest.net/item/adventure-a-unique-photography-wordpress-theme/155571?ref=USERNAME"
 	  ),
 array ("id" => "attique",
 	   "url" => "http://labs.burntfeathers.com/attique",
@@ -215,10 +215,15 @@ endif;
         	$("#theme_list a#theme_select").text($(this).text());
         	
         	$(".center ul li ul").hide();
-        	
+
         	theme_list_open = false;
         	
         	return false;
+			//fix remove frame open current theme location
+			$('.remove_frame').delegate('a','click',bind(function(){
+				top.location.href=$('#iframe')[0].contentWindow.location.href;
+				return false;
+			});
         	
         	});
         
